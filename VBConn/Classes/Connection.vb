@@ -74,9 +74,9 @@ Public Class Connection
 
 #Region "Methods"
 
-    Public Sub LeerArchivoParametro()
+    Public Sub ReadConfigFile()
         Try
-            If Not ExisteArchivoParametro() Then
+            If Not ExistsConfigFile() Then
                 Throw New Exception("No existe el archivo Configuracion.txt.")
             End If
             _stringbuilder = New SqlClient.SqlConnectionStringBuilder(My.Computer.FileSystem.ReadAllText(_ruta_archivo_conexion & _nombre_archivo))
@@ -88,6 +88,14 @@ Public Class Connection
         Catch ex As Exception
             MessageBox.Show("No se pudo leer la parametrización. La excepción dice: " & ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End Try
+    End Sub
+
+    Private Sub SaveConfigFile()
+        Dim escritor As System.IO.StreamWriter
+        escritor = My.Computer.FileSystem.OpenTextFileWriter(_ruta_archivo_conexion & _nombre_archivo, False)
+        escritor.WriteLine(_stringbuilder.ToString)
+        escritor.Close()
+
     End Sub
 #End Region
 
@@ -120,7 +128,7 @@ Public Class Connection
     ''' </summary>
     ''' <returns>Retorna boleano</returns>
     ''' <remarks></remarks>
-    Public Function ExisteArchivoParametro() As Boolean
+    Public Function ExistsConfigFile() As Boolean
         If Microsoft.VisualBasic.FileIO.FileSystem.FileExists(_ruta_archivo_conexion & _nombre_archivo) Then
             Return True : End If
         Return False
