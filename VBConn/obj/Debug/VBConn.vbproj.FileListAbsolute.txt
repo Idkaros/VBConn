@@ -1,0 +1,13 @@
+D:\Proyectos\VBConn\VBConn\bin\Debug\VBConn.exe.config
+D:\Proyectos\VBConn\VBConn\bin\Debug\VBConn.exe
+D:\Proyectos\VBConn\VBConn\bin\Debug\VBConn.pdb
+D:\Proyectos\VBConn\VBConn\bin\Debug\VBConn.xml
+D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.vbprojAssemblyReference.cache
+D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.Resources.resources
+D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.vbproj.GenerateResource.cache
+D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.vbproj.CoreCompileInputs.cache
+D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.exe
+D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.xml
+D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.pdb
+D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.frmConnectionTest.resources
+D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.frmGenerateConnection.resources

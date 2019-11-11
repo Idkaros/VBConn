@@ -16,7 +16,7 @@ Public Class Connection
     Private _sqlcommand As SqlClient.SqlCommand
 #End Region
 
-#Region "Variable locales"
+#Region "Local variables"
     'Nombre y extención del archivo donde se guarda la conexión
     Private _nombre_archivo As String
 
@@ -33,7 +33,7 @@ Public Class Connection
             _stringbuilder.InitialCatalog = value
         End Set
     End Property
-    Public Property Server() As String
+    Public Property DataSource() As String
         Get
             Return _stringbuilder.DataSource
         End Get
@@ -57,9 +57,6 @@ Public Class Connection
             _stringbuilder.Password = value
         End Set
     End Property
-
-
-
 #End Region
 
 #Region "Constructor"
@@ -68,13 +65,23 @@ Public Class Connection
     Private Sub New()
         _stringbuilder = New SqlClient.SqlConnectionStringBuilder()
         _nombre_archivo = "Conexion.txt"
-        _ruta_archivo_conexion = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)
+        _ruta_archivo_conexion = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\"
     End Sub
 #End Region
 
 #Region "Methods"
-
-    Public Sub ReadConfigFile()
+    Public Sub Load()
+        Try
+            If Not ExistsConfigFile() Then
+                Generate()
+            Else
+                Read()
+            End If
+        Catch ex As Exception
+            'MessageBox.Show("No se pudo leer la parametrización. La excepción dice: " & ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+        End Try
+    End Sub
+    Private Sub Read()
         Try
             If Not ExistsConfigFile() Then
                 Throw New Exception("No existe el archivo Configuracion.txt.")
@@ -89,13 +96,16 @@ Public Class Connection
             MessageBox.Show("No se pudo leer la parametrización. La excepción dice: " & ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End Try
     End Sub
-
-    Private Sub SaveConfigFile()
-        Dim escritor As System.IO.StreamWriter
-        escritor = My.Computer.FileSystem.OpenTextFileWriter(_ruta_archivo_conexion & _nombre_archivo, False)
-        escritor.WriteLine(_stringbuilder.ToString)
-        escritor.Close()
-
+    Public Sub Save()
+        Dim writer As System.IO.StreamWriter
+        writer = My.Computer.FileSystem.OpenTextFileWriter(_ruta_archivo_conexion & _nombre_archivo, False)
+        writer.WriteLine(_stringbuilder.ToString)
+        writer.Close()
+    End Sub
+    Public Sub Generate()
+        Dim frmConnectionGenerate As New frmGenerateConnection()
+        frmConnectionGenerate.ShowDialog()
+        frmConnectionGenerate.Dispose()
     End Sub
 #End Region
 
@@ -164,6 +174,10 @@ Public Class Connection
         Finally
             _sqlcommand.Connection.Close()
         End Try
+    End Function
+
+    Public Function ToString() As String
+        Return _stringbuilder.ToString
     End Function
 #End Region
 End Class

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmMain
+Partial Class frmConnectionTest
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,17 +22,31 @@ Partial Class frmMain
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.lblConnection = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'frmMain
+        'lblConnection
+        '
+        Me.lblConnection.AutoSize = True
+        Me.lblConnection.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblConnection.Location = New System.Drawing.Point(12, 9)
+        Me.lblConnection.Name = "lblConnection"
+        Me.lblConnection.Size = New System.Drawing.Size(314, 36)
+        Me.lblConnection.TabIndex = 0
+        Me.lblConnection.Text = "Successful connection"
+        '
+        'frmConnectionTest
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(432, 326)
-        Me.Name = "frmMain"
-        Me.Text = "Main"
+        Me.ClientSize = New System.Drawing.Size(374, 51)
+        Me.Controls.Add(Me.lblConnection)
+        Me.Name = "frmConnectionTest"
+        Me.Text = "Connection test"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
+    Friend WithEvents lblConnection As Label
 End Class

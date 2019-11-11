@@ -74,11 +74,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Connection.vb" />
-    <Compile Include="frmMain.vb">
+    <Compile Include="frmGenerateConnection.designer.vb">
+      <DependentUpon>frmGenerateConnection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateConnection.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.vb">
-      <DependentUpon>frmMain.vb</DependentUpon>
+    <Compile Include="frmConnectionTest.designer.vb">
+      <DependentUpon>frmConnectionTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmConnectionTest.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -98,8 +103,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.vb</DependentUpon>
+    <EmbeddedResource Include="frmGenerateConnection.resx">
+      <DependentUpon>frmGenerateConnection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConnectionTest.resx">
+      <DependentUpon>frmConnectionTest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
