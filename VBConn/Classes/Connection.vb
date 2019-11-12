@@ -70,18 +70,8 @@ Public Class Connection
 #End Region
 
 #Region "Methods"
-    Public Sub Load()
-        Try
-            If Not ExistsConfigFile() Then
-                Generate()
-            Else
-                Read()
-            End If
-        Catch ex As Exception
-            'MessageBox.Show("No se pudo leer la parametrización. La excepción dice: " & ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-        End Try
-    End Sub
-    Private Sub Read()
+
+    Public Sub Read()
         Try
             If Not ExistsConfigFile() Then
                 Throw New Exception("No existe el archivo Configuracion.txt.")

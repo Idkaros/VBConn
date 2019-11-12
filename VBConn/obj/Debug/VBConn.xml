@@ -35,5 +35,10 @@ VBConn
  <returns>Retorna boleano</returns>
  <remarks></remarks>
 </member>
+<member name="M:VBConn.frmGenerateConnection.LoadStringBuilder">
+ <summary>
+ Loads the string builder connection object from the parameters controls
+ </summary>
+</member>
 </members>
 </doc>

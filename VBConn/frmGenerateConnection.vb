@@ -1,11 +1,10 @@
 ﻿Public Class frmGenerateConnection
-    ' Sirve para armar la cadena de conexión
     ' Se instancia en el load del form
     Dim _connection As Connection
 
-    ' Cuando no se quiere parametrizar la conexión
-    ' Debemos salir de todo el sistemas
-    'Public cancelar_todo As Boolean = False
+#Region "Local variables"
+
+#End Region
 
 #Region "Eventos"
     Private Sub btnProbar_Click(sender As Object, e As EventArgs) Handles btnProbar.Click
@@ -33,9 +32,10 @@
         Try
             ValidarCampos()
             LoadStringBuilder()
-            'GuardarConexionEnTexto()
-            _connection.Save()
-
+            'Validar conexión para guardar
+            If ValidarConexion() Then
+                _connection.Save()
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End Try
@@ -54,8 +54,13 @@
 
 #Region "Métodos propios"
     Private Sub ProbarConexion()
-        LoadStringBuilder()
-        Dim sqlcon As New SqlClient.SqlConnection(_connection.ToString)
+        Dim stringbuilder As New SqlClient.SqlConnectionStringBuilder
+        stringbuilder.DataSource = txtServidor.Text
+        stringbuilder.InitialCatalog = txtBaseDatos.Text
+        stringbuilder.UserID = txtUsuario.Text
+        stringbuilder.Password = txtContrasena.Text
+
+        Dim sqlcon As New SqlClient.SqlConnection(stringbuilder.ToString)
 
         Try
             sqlcon.Open()
@@ -95,6 +100,9 @@
     '    Me.Close()
     'End Sub
 
+    ''' <summary>
+    ''' Loads the string builder connection object from the parameters controls
+    ''' </summary>
     Private Sub LoadStringBuilder()
         _connection.DataSource = txtServidor.Text
         _connection.DataBase = txtBaseDatos.Text
@@ -106,25 +114,15 @@
         Try
             'Loads de config file into the connection object
             'cadcon = New SqlClient.SqlConnectionStringBuilder(My.Computer.FileSystem.ReadAllText(frmPrincipal.Conexion.ruta_archivo_conexion))
-            '_connection.Read()
-            txtServidor.Text = _connection.DataBase
-            txtBaseDatos.Text = _connection.DataSource
+            _connection.Read()
+            txtServidor.Text = _connection.DataSource
+            txtBaseDatos.Text = _connection.DataBase
             txtUsuario.Text = _connection.User
             txtContrasena.Text = _connection.Password
         Catch ex As Exception
             MessageBox.Show("Inconvenientes al carga parametros. La excepción dice: " & ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End Try
     End Sub
-
-    'Private Sub Textbox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtContrasena.KeyPress, txtBaseDatos.KeyPress, txtServidor.KeyPress, txtUsuario.KeyPress
-    '    Try
-    '        If e.KeyChar = Chr(Keys.Enter) Then
-    '            SendKeys.Send("{TAB}")
-    '        End If
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message)
-    '    End Try
-    'End Sub
 
     Private Sub txtContrasena_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtContrasena.KeyPress
         Try
@@ -138,4 +136,27 @@
         End Try
     End Sub
 #End Region
+
+#Region "Functions"
+    Private Function ValidarConexion() As Boolean
+        Dim sqlcon As New SqlClient.SqlConnection(_connection.ToString)
+        Dim result As Boolean = False
+        Try
+            sqlcon.Open()
+            'Si la conexión se abrió de forma exitosa
+            If sqlcon.State = ConnectionState.Open Then
+                result = True
+            End If
+        Catch ex As Exception
+            If MessageBox.Show(ex.Message & vbCrLf & "¿Desea guardar la configuración igual?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.Yes Then
+                result = True
+            End If
+        Finally
+            sqlcon.Close()
+        End Try
+        Return result
+    End Function
+
+#End Region
+
 End Class

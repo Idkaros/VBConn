@@ -80,12 +80,6 @@
     <Compile Include="frmGenerateConnection.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConnectionTest.designer.vb">
-      <DependentUpon>frmConnectionTest.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmConnectionTest.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -105,9 +99,6 @@
   <ItemGroup>
     <EmbeddedResource Include="frmGenerateConnection.resx">
       <DependentUpon>frmGenerateConnection.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmConnectionTest.resx">
-      <DependentUpon>frmConnectionTest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
