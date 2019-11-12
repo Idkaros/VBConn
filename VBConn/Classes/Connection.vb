@@ -134,7 +134,6 @@ Public Class Connection
         Return False
     End Function
 
-
     Public Function ExecuteNonQuery(ByVal query As String) As Integer
         _sqlcommand.CommandText = query
         Try
