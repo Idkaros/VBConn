@@ -47,7 +47,7 @@
 
         ' If config file exists loads the connection string
         ' This is meant for connection string modification
-        If _connection.ExistsConfigFile Then
+        If _connection.ExistConfigFile Then
             LoadControls() : End If
     End Sub
 #End Region
