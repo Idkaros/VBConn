@@ -10,3 +10,4 @@ D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.exe
 D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.xml
 D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.pdb
 D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.frmGenerateConnection.resources
+D:\Proyectos\VBConn\VBConn\obj\Debug\VBConn.frmMain.resources
