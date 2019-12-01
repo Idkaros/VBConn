@@ -83,7 +83,7 @@ Public Class Connection
 
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            MessageBox.Show("No se pudo leer la parametrización. La excepción dice: " & ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End Try
     End Sub
     Public Sub Save()
