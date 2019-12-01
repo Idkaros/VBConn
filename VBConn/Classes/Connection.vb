@@ -134,6 +134,11 @@ Public Class Connection
         Return False
     End Function
 
+    ''' <summary>
+    ''' Executes a Transact-SQL statement against the connection and returns the number of rows affected.
+    ''' </summary>
+    ''' <param name="query"></param>
+    ''' <returns></returns>
     Public Function ExecuteNonQuery(ByVal query As String) As Integer
         _sqlcommand.CommandText = query
         Try
@@ -165,7 +170,7 @@ Public Class Connection
         End Try
     End Function
 
-    Public Function ToString() As String
+    Public Overrides Function ToString() As String
         Return _stringbuilder.ToString
     End Function
 #End Region
