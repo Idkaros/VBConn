@@ -1,13 +1,13 @@
 ﻿Imports System.Threading
-Public Class Connection
+Public Class Conexion
 
-#Region "Singleton variables"
+#Region "Variables del singleton"
     ' For SyncLock to mark a critical section
     Private Shared classLocker As New Object()
 
     ' Allocate memory space to hold the 
     ' single object instance
-    Private Shared _connection As Connection
+    Private Shared _connection As Conexion
 #End Region
 
 #Region "SQL variables"
@@ -104,7 +104,7 @@ Public Class Connection
     ''' Expose getInstance() for the retrieval of the single object instance.
     ''' </summary>
     ''' <returns>Returns a Connection class object</returns>
-    Public Shared Function getInstance() As Connection
+    Public Shared Function getInstance() As Conexion
 
         ' Initialize singleton through lazy 
         ' initialization to prevent unused 
@@ -115,7 +115,7 @@ Public Class Connection
             ' threads take turns to execute
             SyncLock (classLocker)
                 If (_connection Is Nothing) Then
-                    _connection = New Connection()
+                    _connection = New Conexion()
                 End If
             End SyncLock
         End If

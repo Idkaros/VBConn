@@ -1,7 +1,7 @@
 ﻿Public Class frmMain
-    Dim _conn As Connection
+    Dim _conn As Conexion
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        _conn = Connection.getInstance
+        _conn = Conexion.getInstance
 
         If _conn.ExistConfigFile = False Then
             _conn.Generate()
@@ -10,7 +10,7 @@
         End If
 
         If _conn.ExistConfigFile = False Then
-            lblConexion.Text = "No se pudo realizar la conexión a la base de datos."
+            lblConexion.Text = "No se generar la cadena de conexión a la base de datos."
         End If
 
     End Sub

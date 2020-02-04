@@ -8,4 +8,4 @@ La clase tendrá las siguientes funciones y métodos:
 5. Read		:
 
 # Lógica
-Se deberá validar la existencia del archivo de configuración para generar la conexión.
+La existencia del archivo de texto plano es la bandera para saber si ya se generó la cadena de conexión. La misma se valida en el frmMain.

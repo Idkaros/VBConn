@@ -73,7 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Connection.vb" />
+    <Compile Include="Classes\Conexion.vb" />
     <Compile Include="frmGenerateConnection.designer.vb">
       <DependentUpon>frmGenerateConnection.vb</DependentUpon>
     </Compile>

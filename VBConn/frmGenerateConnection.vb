@@ -1,6 +1,6 @@
 ﻿Public Class frmGenerateConnection
     ' Se instancia en el load del form
-    Dim _connection As Connection
+    Dim _connection As Conexion
 
 #Region "Local variables"
 
