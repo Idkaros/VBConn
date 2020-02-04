@@ -1,0 +1,1 @@
+﻿La enfoque de este proyecto es el de usar una fabrica para construir la clase singleton "Conexion".
