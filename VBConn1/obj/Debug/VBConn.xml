@@ -1,0 +1,44 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+VBConn
+</name>
+</assembly>
+<members>
+<member name="T:VBConn.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:VBConn.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:VBConn.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:VBConn.Connection.getInstance">
+ <summary>
+ Expose getInstance() for the retrieval of the single object instance.
+ </summary>
+ <returns>Returns a Connection class object</returns>
+</member>
+<member name="M:VBConn.Connection.ExistConfigFile">
+ <summary>
+ Verifica si existe el archivo Conexion.txt en la ruta correspondiente.
+ </summary>
+ <returns>Retorna boleano</returns>
+ <remarks></remarks>
+</member>
+<member name="M:VBConn.frmGenerateConnection.LoadStringBuilder">
+ <summary>
+ Loads the string builder connection object from the parameters controls
+ </summary>
+</member>
+</members>
+</doc>
