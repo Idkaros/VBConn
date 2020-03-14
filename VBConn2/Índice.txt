@@ -1,1 +1,13 @@
-﻿El enfoque de este proyecto es el de usar una fabrica para construir la clase singleton "Conexion".
+﻿El enfoque de este proyecto es el de usar usar una clase singleton para una clase "Conexion".
+
+Clase "Conexion"
+Se creará una clase "Conexion" con el patrón de diseño singleton.
+La clase tendrá las siguientes funciones y métodos:
+1. getInstance	: devuelve la unica instancia de la clase que llegará a existir.
+2. ExistConfigFile	: devuelve un valor booleano tanto por si existe o no el archivo donde se guarda la cadena de conexión a la base de datos.
+3. Generate		: levanta el formulario para generar la conexión.
+4. Save		:
+5. Read		:
+
+# Lógica
+La existencia del archivo de texto plano es la bandera para saber si ya se generó la cadena de conexión. La misma se valida en el frmMain.

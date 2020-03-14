@@ -1,6 +1,4 @@
-﻿El enfoque de este proyecto es el de usar usar una clase singleton para una clase "Conexion".
-
-Clase "Conexion"
+﻿Clase "Conexion"
 Se creará una clase "Conexion" con el patrón de diseño singleton.
 La clase tendrá las siguientes funciones y métodos:
 1. getInstance	: devuelve la unica instancia de la clase que llegará a existir.
