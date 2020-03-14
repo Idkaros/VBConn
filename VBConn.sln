@@ -8,9 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBConn2", "VBConn2\VBConn2.vbproj", "{99DBF7FE-297B-4C01-AB3A-DB3E0D180D3C}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBConn3", "VBConn2\VBConn3.vbproj", "{99DBF7FE-297B-4C01-AB3A-DB3E0D180D3C}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBConn1", "VBConn1\VBConn1.vbproj", "{31A60825-8A8C-4F58-9B3E-135A675584F0}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBConn2", "VBConn1\VBConn2.vbproj", "{31A60825-8A8C-4F58-9B3E-135A675584F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
