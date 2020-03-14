@@ -74,10 +74,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Conexion.vb" />
-    <Compile Include="frmGenerateConnection.designer.vb">
-      <DependentUpon>frmGenerateConnection.vb</DependentUpon>
+    <Compile Include="frmGenerarConfiguracion.designer.vb">
+      <DependentUpon>frmGenerarConfiguracion.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmGenerateConnection.vb">
+    <Compile Include="frmGenerarConfiguracion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.vb">
@@ -103,8 +103,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmGenerateConnection.resx">
-      <DependentUpon>frmGenerateConnection.vb</DependentUpon>
+    <EmbeddedResource Include="frmGenerarConfiguracion.resx">
+      <DependentUpon>frmGenerarConfiguracion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>

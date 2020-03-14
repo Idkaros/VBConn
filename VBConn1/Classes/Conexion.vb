@@ -1,14 +1,4 @@
-﻿Imports System.Threading
-Public Class Conexion
-
-#Region "Variables del singleton"
-    ' For SyncLock to mark a critical section
-    Private Shared classLocker As New Object()
-
-    ' Allocate memory space to hold the 
-    ' single object instance
-    Private Shared _connection As Conexion
-#End Region
+﻿Public Class Conexion
 
 #Region "SQL variables"
     Private _stringbuilder As SqlClient.SqlConnectionStringBuilder
@@ -62,7 +52,7 @@ Public Class Conexion
 #Region "Constructor"
     ' Hace el único constructor privado
     ' para prevenir la inicialización por fuera de la clase.
-    Private Sub New()
+    Sub New()
         _stringbuilder = New SqlClient.SqlConnectionStringBuilder()
         _nombre_archivo = "Conexion.txt"
         _ruta_archivo_conexion = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\"
@@ -70,10 +60,9 @@ Public Class Conexion
 #End Region
 
 #Region "Methods"
-
-    Public Sub Read()
+    Public Sub Leer()
         Try
-            If Not ExistConfigFile() Then
+            If Not ExisArchCone() Then
                 Throw New Exception("No existe el archivo Configuracion.txt.")
             End If
             _stringbuilder = New SqlClient.SqlConnectionStringBuilder(My.Computer.FileSystem.ReadAllText(_ruta_archivo_conexion & _nombre_archivo))
@@ -83,17 +72,17 @@ Public Class Conexion
 
 
         Catch ex As Exception
-            MessageBox.Show("No se pudo leer la parametrización. La excepción dice: " & ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            MessageBox.Show("No se pudo leer el archivo de configuracion de texto plano. La excepción dice: " & ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End Try
     End Sub
-    Public Sub Save()
+    Public Sub Guardar()
         Dim writer As System.IO.StreamWriter
         writer = My.Computer.FileSystem.OpenTextFileWriter(_ruta_archivo_conexion & _nombre_archivo, False)
         writer.WriteLine(_stringbuilder.ToString)
         writer.Close()
     End Sub
-    Public Sub Generate()
-        Dim frmConnectionGenerate As New frmGenerateConnection()
+    Public Sub Generar()
+        Dim frmConnectionGenerate As New frmGenerarConfiguracion()
         frmConnectionGenerate.ShowDialog()
         frmConnectionGenerate.Dispose()
     End Sub
@@ -101,34 +90,11 @@ Public Class Conexion
 
 #Region "Functions"
     ''' <summary>
-    ''' Expose getInstance() for the retrieval of the single object instance.
-    ''' </summary>
-    ''' <returns>Returns a Connection class object</returns>
-    Public Shared Function getInstance() As Conexion
-
-        ' Initialize singleton through lazy 
-        ' initialization to prevent unused 
-        ' singleton from taking up program 
-        ' memory
-        If (_connection Is Nothing) Then
-            ' Mark a critical section where 
-            ' threads take turns to execute
-            SyncLock (classLocker)
-                If (_connection Is Nothing) Then
-                    _connection = New Conexion()
-                End If
-            End SyncLock
-        End If
-        Return _connection
-
-    End Function
-
-    ''' <summary>
     ''' Verifica si existe el archivo Conexion.txt en la ruta correspondiente.
     ''' </summary>
     ''' <returns>Retorna boleano</returns>
     ''' <remarks></remarks>
-    Public Function ExistConfigFile() As Boolean
+    Public Function ExisArchCone() As Boolean
         If Microsoft.VisualBasic.FileIO.FileSystem.FileExists(_ruta_archivo_conexion & _nombre_archivo) Then
             Return True : End If
         Return False

@@ -1,4 +1,4 @@
-﻿Public Class frmGenerateConnection
+﻿Public Class frmGenerarConfiguracion
     ' Se instancia en el load del form
     Dim _connection As Conexion
 
@@ -34,7 +34,7 @@
             LoadStringBuilder()
             'Validar conexión para guardar
             If ValidarConexion() Then
-                _connection.Save()
+                _connection.Guardar()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
@@ -47,7 +47,7 @@
 
         ' If config file exists loads the connection string
         ' This is meant for connection string modification
-        If _connection.ExistConfigFile Then
+        If _connection.ExisArchCone Then
             LoadControls() : End If
     End Sub
 #End Region
@@ -114,7 +114,7 @@
         Try
             'Loads de config file into the connection object
             'cadcon = New SqlClient.SqlConnectionStringBuilder(My.Computer.FileSystem.ReadAllText(frmPrincipal.Conexion.ruta_archivo_conexion))
-            _connection.Read()
+            _connection.Leer()
             txtServidor.Text = _connection.DataSource
             txtBaseDatos.Text = _connection.DataBase
             txtUsuario.Text = _connection.User
