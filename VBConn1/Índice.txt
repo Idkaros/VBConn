@@ -1,4 +1,4 @@
-﻿El enfoque de este proyecto es el de usar usar una clase singleton para la conexión.
+﻿El enfoque de este proyecto es el de usar usar una clase singleton para una clase "Conexion".
 
 Clase "Conexion"
 Se creará una clase "Conexion" con el patrón de diseño singleton.
