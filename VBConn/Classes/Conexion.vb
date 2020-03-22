@@ -10,7 +10,7 @@ Public Class Conexion
     Private Shared _connection As Conexion
 #End Region
 
-#Region "SQL variables"
+#Region "Variables SQL"
     Private _stringbuilder As SqlClient.SqlConnectionStringBuilder
     Private _sqlconnection As SqlClient.SqlConnection
     Private _sqlcommand As SqlClient.SqlCommand
@@ -69,11 +69,11 @@ Public Class Conexion
     End Sub
 #End Region
 
-#Region "Methods"
+#Region "Métodos"
 
-    Public Sub Read()
+    Public Sub Leer()
         Try
-            If Not ExistConfigFile() Then
+            If Not ExisteArchivoConfig() Then
                 Throw New Exception("No existe el archivo Configuracion.txt.")
             End If
             _stringbuilder = New SqlClient.SqlConnectionStringBuilder(My.Computer.FileSystem.ReadAllText(_ruta_archivo_conexion & _nombre_archivo))
@@ -86,20 +86,22 @@ Public Class Conexion
             MessageBox.Show("No se pudo leer la parametrización. La excepción dice: " & ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End Try
     End Sub
-    Public Sub Save()
+
+    Public Sub Guardar()
         Dim writer As System.IO.StreamWriter
         writer = My.Computer.FileSystem.OpenTextFileWriter(_ruta_archivo_conexion & _nombre_archivo, False)
         writer.WriteLine(_stringbuilder.ToString)
         writer.Close()
     End Sub
-    Public Sub Generate()
+
+    Public Sub Generar()
         Dim frmConnectionGenerate As New frmGenerateConnection()
         frmConnectionGenerate.ShowDialog()
         frmConnectionGenerate.Dispose()
     End Sub
 #End Region
 
-#Region "Functions"
+#Region "Funciones"
     ''' <summary>
     ''' Expose getInstance() for the retrieval of the single object instance.
     ''' </summary>
@@ -128,7 +130,7 @@ Public Class Conexion
     ''' </summary>
     ''' <returns>Retorna boleano</returns>
     ''' <remarks></remarks>
-    Public Function ExistConfigFile() As Boolean
+    Public Function ExisteArchivoConfig() As Boolean
         If Microsoft.VisualBasic.FileIO.FileSystem.FileExists(_ruta_archivo_conexion & _nombre_archivo) Then
             Return True : End If
         Return False
