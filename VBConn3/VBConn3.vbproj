@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{31A60825-8A8C-4F58-9B3E-135A675584F0}</ProjectGuid>
+    <ProjectGuid>{99DBF7FE-297B-4C01-AB3A-DB3E0D180D3C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <StartupObject>VBConn.My.MyApplication</StartupObject>
     <RootNamespace>VBConn</RootNamespace>
@@ -73,7 +73,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Conexion.vb" />
+    <Compile Include="Classes\ConfigFile.vb" />
+    <Compile Include="Classes\Connection.vb" />
     <Compile Include="frmGenerateConnection.designer.vb">
       <DependentUpon>frmGenerateConnection.vb</DependentUpon>
     </Compile>

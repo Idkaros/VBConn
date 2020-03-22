@@ -1,0 +1,18 @@
+﻿El enfoque de este proyecto es tener una sencilla clase "Conexion".
+
+La clase Conexion deberá tener las propiedades:
+1. DataBase		: para asignar el nombre de la base de datos a conectar.
+2. DataSource	: para asignar el servidor\instancia de base de datos.
+3. User			: para asignar el usuario del motor de BD.
+4. Password		: para asignar la contraseña del usuario.
+
+La calse Conexion deberá tener las 
+La clase tendrá las siguientes funciones y métodos:
+1. ExisArchConf	: devuelve un valor booleano tanto por si existe o no el archivo donde se guarda la cadena de conexión a la base de datos.
+3. Generar	: levanta el formulario para generar la conexión.
+4. Guardar	:
+5. Leer		: trata de leer el archivo de configuración de texto plano.
+
+# Lógica
+La existencia del archivo de configuración de texto plano es la bandera para saber si ya se generó la cadena de conexión.
+La misma se valida en el frmMain.

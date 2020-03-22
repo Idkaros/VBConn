@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{31A60825-8A8C-4F58-9B3E-135A675584F0}</ProjectGuid>
+    <ProjectGuid>{0BF4DD00-B64F-43E9-B7B4-AC5A75F4BA27}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <StartupObject>VBConn.My.MyApplication</StartupObject>
     <RootNamespace>VBConn</RootNamespace>
@@ -74,10 +74,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Conexion.vb" />
-    <Compile Include="frmGenerateConnection.designer.vb">
-      <DependentUpon>frmGenerateConnection.vb</DependentUpon>
+    <Compile Include="frmGenerarConfiguracion.designer.vb">
+      <DependentUpon>frmGenerarConfiguracion.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmGenerateConnection.vb">
+    <Compile Include="frmGenerarConfiguracion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.vb">
@@ -103,8 +103,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmGenerateConnection.resx">
-      <DependentUpon>frmGenerateConnection.vb</DependentUpon>
+    <EmbeddedResource Include="frmGenerarConfiguracion.resx">
+      <DependentUpon>frmGenerarConfiguracion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
