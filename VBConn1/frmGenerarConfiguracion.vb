@@ -1,10 +1,6 @@
 ﻿Public Class frmGenerarConfiguracion
     ' Se instancia en el load del form
-    Dim _connection As Conexion
-
-#Region "Local variables"
-
-#End Region
+    Dim _configuracion As Configuracion
 
 #Region "Eventos"
     Private Sub btnProbar_Click(sender As Object, e As EventArgs) Handles btnProbar.Click
@@ -34,7 +30,7 @@
             LoadStringBuilder()
             'Validar conexión para guardar
             If ValidarConexion() Then
-                _connection.Guardar()
+                _configuracion.Guardar()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
@@ -43,11 +39,11 @@
     End Sub
 
     Private Sub frmParametrizarConexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        _connection = _connection.getInstance()
+        _configuracion = Configuracion.getInstance()
 
         ' If config file exists loads the connection string
         ' This is meant for connection string modification
-        If _connection.ExisArchCone Then
+        If _configuracion.ExisArchCone Then
             LoadControls() : End If
     End Sub
 #End Region
@@ -92,33 +88,23 @@
         End If
     End Sub
 
-    'Private Sub GuardarConexionEnTexto()
-    '    Dim escritor As System.IO.StreamWriter
-    '    escritor = My.Computer.FileSystem.OpenTextFileWriter(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\Conexion.txt", False)
-    '    escritor.WriteLine(_connection.ToString)
-    '    escritor.Close()
-    '    Me.Close()
-    'End Sub
-
     ''' <summary>
-    ''' Loads the string builder connection object from the parameters controls
+    ''' Carga los parametros del formulario al objeto configuración
     ''' </summary>
     Private Sub LoadStringBuilder()
-        _connection.DataSource = txtServidor.Text
-        _connection.DataBase = txtBaseDatos.Text
-        _connection.User = txtUsuario.Text
-        _connection.Password = txtContrasena.Text
+        _configuracion.DataSource = txtServidor.Text
+        _configuracion.DataBase = txtBaseDatos.Text
+        _configuracion.User = txtUsuario.Text
+        _configuracion.Password = txtContrasena.Text
     End Sub
 
     Private Sub LoadControls()
         Try
-            'Loads de config file into the connection object
-            'cadcon = New SqlClient.SqlConnectionStringBuilder(My.Computer.FileSystem.ReadAllText(frmPrincipal.Conexion.ruta_archivo_conexion))
-            _connection.Leer()
-            txtServidor.Text = _connection.DataSource
-            txtBaseDatos.Text = _connection.DataBase
-            txtUsuario.Text = _connection.User
-            txtContrasena.Text = _connection.Password
+            _configuracion.Leer()
+            txtServidor.Text = _configuracion.StringBuilder.DataSource
+            txtBaseDatos.Text = _configuracion.StringBuilder.InitialCatalog
+            txtUsuario.Text = _configuracion.StringBuilder.UserID
+            txtContrasena.Text = _configuracion.StringBuilder.Password
         Catch ex As Exception
             MessageBox.Show("Inconvenientes al carga parametros. La excepción dice: " & ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End Try
@@ -127,8 +113,6 @@
     Private Sub txtContrasena_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtContrasena.KeyPress
         Try
             If e.KeyChar = Chr(Keys.Enter) Then
-                'Funciona
-                'btnProbar.Select()
                 Me.SelectNextControl(txtContrasena, True, True, True, True)
             End If
         Catch ex As Exception
@@ -139,7 +123,7 @@
 
 #Region "Functions"
     Private Function ValidarConexion() As Boolean
-        Dim sqlcon As New SqlClient.SqlConnection(_connection.ToString)
+        Dim sqlcon As New SqlClient.SqlConnection(_configuracion.ToString)
         Dim result As Boolean = False
         Try
             sqlcon.Open()
@@ -156,6 +140,10 @@
         End Try
         Return result
     End Function
+
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        _configuracion.ElimArch
+    End Sub
 
 #End Region
 

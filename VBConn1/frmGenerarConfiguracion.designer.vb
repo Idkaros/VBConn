@@ -22,6 +22,7 @@ Partial Class frmGenerarConfiguracion
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.txtServidor = New System.Windows.Forms.TextBox()
         Me.txtBaseDatos = New System.Windows.Forms.TextBox()
         Me.txtUsuario = New System.Windows.Forms.TextBox()
@@ -33,6 +34,8 @@ Partial Class frmGenerarConfiguracion
         Me.btnProbar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.ttp = New System.Windows.Forms.ToolTip(Me.components)
         Me.SuspendLayout()
         '
         'txtServidor
@@ -139,11 +142,23 @@ Partial Class frmGenerarConfiguracion
         Me.btnCancelar.Text = "&Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
-        'frmGenerateConnection
+        'btnEliminar
+        '
+        Me.btnEliminar.Location = New System.Drawing.Point(15, 116)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEliminar.TabIndex = 8
+        Me.btnEliminar.Text = "Eliminar"
+        Me.ttp.SetToolTip(Me.btnEliminar, "Elimina el archivo de configuración que exista en la ruta y con el nombre que se " &
+        "usan.")
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'frmGenerarConfiguracion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(264, 176)
+        Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnProbar)
@@ -156,7 +171,7 @@ Partial Class frmGenerarConfiguracion
         Me.Controls.Add(Me.txtBaseDatos)
         Me.Controls.Add(Me.txtServidor)
         Me.KeyPreview = True
-        Me.Name = "frmGenerateConnection"
+        Me.Name = "frmGenerarConfiguracion"
         Me.Text = "Parametrizar la conexión"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -173,4 +188,6 @@ Partial Class frmGenerarConfiguracion
     Friend WithEvents btnProbar As System.Windows.Forms.Button
     Friend WithEvents btnGuardar As System.Windows.Forms.Button
     Friend WithEvents btnCancelar As System.Windows.Forms.Button
+    Friend WithEvents btnEliminar As Button
+    Friend WithEvents ttp As ToolTip
 End Class

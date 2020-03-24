@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Conexion.vb" />
+    <Compile Include="Classes\Configuracion.vb" />
     <Compile Include="frmGenerarConfiguracion.designer.vb">
       <DependentUpon>frmGenerarConfiguracion.vb</DependentUpon>
     </Compile>

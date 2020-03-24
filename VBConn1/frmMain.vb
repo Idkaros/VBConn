@@ -1,21 +1,23 @@
 ﻿Public Class frmMain
-    Dim _conn As Conexion
-    Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        _conn = Conexion.getInstance
+    Dim _configuracion As Configuracion
 
-        If _conn.ExisArchCone = False Then
-            _conn.Generar()
+    Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Se inicia el preceso para la generación del archivo de conexión.
+        _configuracion = Configuracion.getInstance
+
+        If _configuracion.ExisArchCone = False Then
+            _configuracion.Generar()
         Else
-            _conn.Leer()
+            _configuracion.Leer()
         End If
 
-        If _conn.ExisArchCone = False Then
-            lblConexion.Text = "No se generar la cadena de conexión a la base de datos."
+        If _configuracion.ExisArchCone = False Then
+            lblConexion.Text = "No hay archivo de conexión a la base de datos."
         End If
 
     End Sub
 
     Private Sub BtnConexion_Click(sender As Object, e As EventArgs) Handles btnConexion.Click
-        _conn.Generar()
+        _configuracion.Generar()
     End Sub
 End Class
