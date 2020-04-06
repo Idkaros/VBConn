@@ -25,6 +25,7 @@
     ' Hacemos un único constructor privado
     ' para prevenir la inicialización por fuera de la clase.
     Private Sub New()
+        _stringbuilder = New SqlClient.SqlConnectionStringBuilder
         _ruta_archivo_conexion = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) & "\"
         _nombre_archivo = "Conexion.txt"
     End Sub
@@ -132,6 +133,10 @@
         If Microsoft.VisualBasic.FileIO.FileSystem.FileExists(_ruta_archivo_conexion & _nombre_archivo) Then
             Return True : End If
         Return False
+    End Function
+
+    Public Overrides Function ToString() As String
+        Return _stringbuilder.ToString
     End Function
 #End Region
 End Class
