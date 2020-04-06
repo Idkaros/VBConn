@@ -20,3 +20,5 @@ La clase Conexion deberá tener las propiedades:
 # Lógica
 La existencia del archivo de configuración de texto plano es la bandera para saber si ya se generó la cadena de conexión.
 La misma se valida en el frmMain.
+
+En el load del frmGenerarConfiguración si existe el archivo de configuración debe cargar el mismo.
