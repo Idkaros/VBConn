@@ -22,22 +22,34 @@ VBConn
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="M:VBConn.Connection.getInstance">
+<member name="M:VBConn.Conexion.ExecuteNonQuery(System.String)">
+ <summary>
+ Executes a Transact-SQL statement against the connection and returns the number of rows affected.
+ </summary>
+ <param name="query"></param>
+ <returns></returns>
+</member>
+<member name="M:VBConn.Configuracion.Leer">
+ <summary>
+ Valida que exita el archivo de configuración, posteriormente lo lee y carga en una variable local SqlConnectionStringBuilder
+ </summary>
+</member>
+<member name="M:VBConn.Configuracion.getInstance">
  <summary>
  Expose getInstance() for the retrieval of the single object instance.
  </summary>
  <returns>Returns a Connection class object</returns>
 </member>
-<member name="M:VBConn.Connection.ExistConfigFile">
+<member name="M:VBConn.Configuracion.ExisArchCone">
  <summary>
  Verifica si existe el archivo Conexion.txt en la ruta correspondiente.
  </summary>
  <returns>Retorna boleano</returns>
  <remarks></remarks>
 </member>
-<member name="M:VBConn.frmGenerateConnection.LoadStringBuilder">
+<member name="M:VBConn.frmGenerarConfiguracion.LoadStringBuilder">
  <summary>
- Loads the string builder connection object from the parameters controls
+ Carga los parametros del formulario al objeto configuración
  </summary>
 </member>
 </members>
