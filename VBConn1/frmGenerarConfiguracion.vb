@@ -32,10 +32,10 @@
             If ValidarConexion() Then
                 _configuracion.Guardar()
             End If
+            Me.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End Try
-        Me.Close()
     End Sub
 
     Private Sub frmParametrizarConexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
