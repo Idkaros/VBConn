@@ -51,34 +51,34 @@ Partial Class frmGenerarConfiguracion
         '
         Me.txtBaseDatos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtBaseDatos.Location = New System.Drawing.Point(96, 38)
+        Me.txtBaseDatos.Location = New System.Drawing.Point(95, 87)
         Me.txtBaseDatos.Name = "txtBaseDatos"
         Me.txtBaseDatos.Size = New System.Drawing.Size(155, 20)
-        Me.txtBaseDatos.TabIndex = 1
+        Me.txtBaseDatos.TabIndex = 3
         '
         'txtUsuario
         '
         Me.txtUsuario.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtUsuario.Location = New System.Drawing.Point(96, 64)
+        Me.txtUsuario.Location = New System.Drawing.Point(95, 35)
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(155, 20)
-        Me.txtUsuario.TabIndex = 2
+        Me.txtUsuario.TabIndex = 1
         '
         'txtContrasena
         '
         Me.txtContrasena.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtContrasena.Location = New System.Drawing.Point(96, 90)
+        Me.txtContrasena.Location = New System.Drawing.Point(95, 61)
         Me.txtContrasena.Name = "txtContrasena"
         Me.txtContrasena.Size = New System.Drawing.Size(155, 20)
-        Me.txtContrasena.TabIndex = 3
+        Me.txtContrasena.TabIndex = 2
         Me.txtContrasena.UseSystemPasswordChar = True
         '
         'lblUsuario
         '
         Me.lblUsuario.AutoSize = True
-        Me.lblUsuario.Location = New System.Drawing.Point(44, 67)
+        Me.lblUsuario.Location = New System.Drawing.Point(43, 38)
         Me.lblUsuario.Name = "lblUsuario"
         Me.lblUsuario.Size = New System.Drawing.Size(46, 13)
         Me.lblUsuario.TabIndex = 4
@@ -87,7 +87,7 @@ Partial Class frmGenerarConfiguracion
         'lblBaseDatos
         '
         Me.lblBaseDatos.AutoSize = True
-        Me.lblBaseDatos.Location = New System.Drawing.Point(12, 41)
+        Me.lblBaseDatos.Location = New System.Drawing.Point(11, 90)
         Me.lblBaseDatos.Name = "lblBaseDatos"
         Me.lblBaseDatos.Size = New System.Drawing.Size(78, 13)
         Me.lblBaseDatos.TabIndex = 5
@@ -105,7 +105,7 @@ Partial Class frmGenerarConfiguracion
         'lblContrasena
         '
         Me.lblContrasena.AutoSize = True
-        Me.lblContrasena.Location = New System.Drawing.Point(26, 93)
+        Me.lblContrasena.Location = New System.Drawing.Point(25, 64)
         Me.lblContrasena.Name = "lblContrasena"
         Me.lblContrasena.Size = New System.Drawing.Size(64, 13)
         Me.lblContrasena.TabIndex = 7
@@ -147,7 +147,7 @@ Partial Class frmGenerarConfiguracion
         Me.btnEliminar.Location = New System.Drawing.Point(15, 116)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
-        Me.btnEliminar.TabIndex = 8
+        Me.btnEliminar.TabIndex = 7
         Me.btnEliminar.Text = "Eliminar"
         Me.ttp.SetToolTip(Me.btnEliminar, "Elimina el archivo de configuración que exista en la ruta y con el nombre que se " &
         "usan.")

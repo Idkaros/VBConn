@@ -2,7 +2,7 @@
     ' Se instancia en el load del form
     Dim _configuracion As Configuracion
 
-#Region "Eventos"
+#Region "Eventos de los controles"
     Private Sub btnProbar_Click(sender As Object, e As EventArgs) Handles btnProbar.Click
         Try
             ValidarCampos()
@@ -45,6 +45,26 @@
         ' This is meant for connection string modification
         If _configuracion.ExisArchCone Then
             LoadControls() : End If
+    End Sub
+
+    Private Sub txtContrasena_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtContrasena.KeyPress
+        Try
+            If e.KeyChar = Chr(Keys.Enter) Then
+                Me.SelectNextControl(txtContrasena, True, True, True, True)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtContrasena_Leave(sender As Object, e As EventArgs) Handles txtContrasena.Leave
+        If txtServidor.Text.Trim <> "" And txtUsuario.Text.Trim <> "" And txtContrasena.Text.Trim <> "" Then
+            CargarBDAutoComplete()
+        Else
+            txtBaseDatos.AutoCompleteSource = AutoCompleteSource.None
+            txtBaseDatos.AutoCompleteCustomSource = Nothing
+            txtBaseDatos.AutoCompleteMode = AutoCompleteMode.None
+        End If
     End Sub
 #End Region
 
@@ -110,13 +130,31 @@
         End Try
     End Sub
 
-    Private Sub txtContrasena_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtContrasena.KeyPress
+    Private Sub CargarBDAutoComplete()
+        Dim strbuilder As New SqlClient.SqlConnectionStringBuilder
+        With strbuilder
+            .UserID = txtUsuario.Text
+            .Password = txtContrasena.Text
+            .DataSource = txtServidor.Text
+            .InitialCatalog = "master"
+            .ConnectTimeout = 2
+        End With
+        Dim con As New SqlClient.SqlConnection(strbuilder.ToString)
+        Dim com As New SqlClient.SqlCommand("select name from sysdatabases where name not in('master','tempdb','model','msdb')", con)
+        Dim da As New SqlClient.SqlDataAdapter(com)
+        Dim dt As New DataTable
         Try
-            If e.KeyChar = Chr(Keys.Enter) Then
-                Me.SelectNextControl(txtContrasena, True, True, True, True)
-            End If
+            da.Fill(dt)
+            Dim sList As List(Of String) = dt.AsEnumerable().[Select](Function(r) r.Field(Of String)("name")).ToList()
+            Dim source As New AutoCompleteStringCollection
+            source.AddRange(sList.ToArray)
+            txtBaseDatos.AutoCompleteMode = AutoCompleteMode.Suggest
+            txtBaseDatos.AutoCompleteCustomSource = source
+            txtBaseDatos.AutoCompleteSource = AutoCompleteSource.CustomSource
+
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
+            'No mostramos la excepción ya que este metodo es un proceso auxiliar no crítico para tratar de hacer inteligente el sistema
         End Try
     End Sub
 #End Region
@@ -144,6 +182,7 @@
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         _configuracion.ElimArch
     End Sub
+
 
 #End Region
 
