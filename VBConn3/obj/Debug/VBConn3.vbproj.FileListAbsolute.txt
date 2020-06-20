@@ -1,0 +1,6 @@
+D:\Proyectos\VBConn\VBConn3\obj\Debug\VBConn3.vbprojAssemblyReference.cache
+D:\Proyectos\VBConn\VBConn3\obj\Debug\VBConn.frmGenerateConnection.resources
+D:\Proyectos\VBConn\VBConn3\obj\Debug\VBConn.frmMain.resources
+D:\Proyectos\VBConn\VBConn3\obj\Debug\VBConn.Resources.resources
+D:\Proyectos\VBConn\VBConn3\obj\Debug\VBConn3.vbproj.GenerateResource.cache
+D:\Proyectos\VBConn\VBConn3\obj\Debug\VBConn3.vbproj.CoreCompileInputs.cache
