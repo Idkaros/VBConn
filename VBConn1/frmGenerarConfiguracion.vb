@@ -1,6 +1,7 @@
 ﻿Public Class frmGenerarConfiguracion
     ' Se instancia en el load del form
-    Dim _configuracion As Configuracion
+    Dim _configuracion As Configuracion = Configuracion.getInstance
+    Dim cade_cons As SqlClient.SqlConnectionStringBuilder
 
 #Region "Eventos de los controles"
     Private Sub btnProbar_Click(sender As Object, e As EventArgs) Handles btnProbar.Click
@@ -180,7 +181,7 @@
     End Function
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        _configuracion.ElimArch
+        _configuracion.EliminarArchivo()
     End Sub
 
 
