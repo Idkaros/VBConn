@@ -4,11 +4,15 @@
 Tiene:
 1. _stringbuilder	: Variable privada donde se guarda la cadena de conexión.
 
-La clase Configuracion
+Los métodos de la clase Configuracion
 1. ExisArchConf	: devuelve un valor booleano tanto por si existe o no el archivo donde se guarda la cadena de conexión a la base de datos.
 3. Generar	: levanta el formulario para generar la conexión.
 4. Guardar	:
 5. Leer		: trata de leer el archivo de configuración de texto plano.
+
+# Lógica:
+La existencia del archivo de configuración de texto plano es la bandera para saber si ya se generó la cadena de conexión. La misma se valida en el frmMain.
+
 
 ##### Conexion
 La clase Conexion deberá tener las propiedades:
@@ -18,7 +22,6 @@ La clase Conexion deberá tener las propiedades:
 4. Password		: para asignar la contraseña del usuario.
 
 # Lógica
-La existencia del archivo de configuración de texto plano es la bandera para saber si ya se generó la cadena de conexión.
-La misma se valida en el frmMain.
 
+##### Formulario de generación de la configuración
 En el load del frmGenerarConfiguración si existe el archivo de configuración debe cargar el mismo.
