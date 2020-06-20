@@ -94,7 +94,7 @@
         frmConnectionGenerate.Dispose()
     End Sub
 
-    Public Sub ElimArch()
+    Public Sub EliminarArchivo()
         My.Computer.FileSystem.DeleteFile(_ruta_archivo_conexion & _nombre_archivo)
     End Sub
 #End Region
