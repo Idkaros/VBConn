@@ -13,11 +13,16 @@
 
         If _configuracion.ExisArchCone = False Then
             lblConexion.Text = "No hay archivo de conexión a la base de datos."
+        Else
+            Dim con As New Conexion(_configuracion.StringBuilder.ToString)
+            lblConexion.Text = con.Probar()
         End If
 
     End Sub
 
-    Private Sub BtnConexion_Click(sender As Object, e As EventArgs) Handles btnConexion.Click
-        _configuracion.Generar()
+    Private Sub btnConexion_Click(sender As Object, e As EventArgs) Handles btnConexion.Click
+        Dim con As New Conexion(_configuracion.StringBuilder.ToString)
+        lblConexion.Text = con.Probar()
     End Sub
+
 End Class
