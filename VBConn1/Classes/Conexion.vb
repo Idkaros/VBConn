@@ -1,4 +1,5 @@
-﻿Public Class Conexion
+﻿Imports System.Data.SqlClient
+Public Class Conexion
 
 #Region "SQL variables"
     Private _stringbuilder As SqlClient.SqlConnectionStringBuilder
@@ -39,11 +40,20 @@
             _stringbuilder.Password = value
         End Set
     End Property
+
 #End Region
 
 #Region "Constructor"
     Sub New()
         _stringbuilder = New SqlClient.SqlConnectionStringBuilder()
+    End Sub
+
+    Sub New(ByVal caden_conex As String)
+        _stringbuilder = New SqlClient.SqlConnectionStringBuilder(caden_conex)
+    End Sub
+
+    Sub New(ByVal stringbuilder As SqlClient.SqlConnectionStringBuilder)
+        _stringbuilder = stringbuilder
     End Sub
 #End Region
 
@@ -87,6 +97,21 @@
 
     Public Overrides Function ToString() As String
         Return _stringbuilder.ToString
+    End Function
+
+    Public Function Probar() As String
+        Dim conex As New SqlConnection(_stringbuilder.ToString)
+        Dim resul As String = "Conexión a la BD fallida"
+        Try
+            conex.Open()
+            If conex.State = ConnectionState.Open Then
+                resul = "Conexión a la BD exitosa"
+            End If
+        Catch ex As Exception
+        Finally
+            conex.Close()
+        End Try
+        Return resul
     End Function
 #End Region
 End Class
