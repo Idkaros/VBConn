@@ -1,0 +1,33 @@
+﻿##### Inventario
+Variables privadas
+----------
+classLocker As Object
+_configuracion As Configuracion
+_stringbuilder As SqlConnectionStringBuilder
+_nombre_archivo As String
+_ruta_archivo_conexion As String
+
+Constructores
+----------
+New()
+
+Propiedades
+----------
+ReadOnly StringBuilder() As SqlConnectionStringBuilder
+WriteOnly Property DataSource()
+WriteOnly Property DataBase()
+WriteOnly Property User()
+WriteOnly Property Password()
+
+Métodos
+----------
+Leer()
+Guardar()
+Generar()
+EliminarArchivo()
+
+Funciones
+----------
+getInstance() As Configuracion
+ExisArchCone() As Boolean
+ToString() As String

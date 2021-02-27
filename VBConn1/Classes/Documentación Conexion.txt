@@ -1,0 +1,26 @@
+﻿##### Inventario
+Variables privadas
+----------
+_stringbuilder
+_sqlconnection
+_sqlcommand
+
+Propiedades
+----------
+DataBase()
+DataSource()
+User()
+Password()
+
+Constructores
+----------
+New()
+New(caden_conex As String)
+New(stringbuilder As SqlConnectionStringBuilder)
+
+Funciones
+----------
+ExecuteNonQuery(query As String) As Integer
+ExecuteScalar(query As String) As Object
+ToString() As String
+Probar() As String

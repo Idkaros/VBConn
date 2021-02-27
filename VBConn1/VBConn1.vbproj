@@ -130,6 +130,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Classes\Documentación Conexion.txt" />
+    <Content Include="Classes\Documentación Configuracion.txt" />
     <Content Include="Documentación.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
